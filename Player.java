@@ -7,7 +7,7 @@ import java.util.List;
  * This class provides methods for player actions such as moving between rooms, collecting parts, 
  * collecting tools, building the machine, and resetting collected items.
  * 
- * @author Francesco Thomas, Alex Besaw
+ * @author Francesco Thomas, Alex Besaw, Connor Broderick
  */
 public class Player {
     private String name; // name of player
