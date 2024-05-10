@@ -1,16 +1,19 @@
 public class RoomWithTools extends Room {
+/** A room for tools that is a subclass of Room.
+* @author Connor Broderick
+*/
     
-    /**
-     * Constructs a RoomWithTools with a specified room number.
-     * @param number The number of the room.
-     */
+/**
+ * Creates a RoomWithTools instance associated with a specific room number.
+ * @param number is the identifier of the room.
+ */
     public RoomWithTools(int number) {
         super(number);
     }
 
     /**
-     * Indicates whether this room has tools.
-     * @return true because this room type always contains tools.
+     * Determines if this room has tools
+     * should @return true, as this room type will always contains tools.
      */
     @Override
     public boolean hasTools() {

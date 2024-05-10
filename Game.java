@@ -1,14 +1,22 @@
+/**
+ * The "Game" class manages the core mechanics and state of the maze adventure game.
+ * It orchestrates player movements, room configurations, and gameplay progression.
+ * 
+ * This class provides methods to initialize the game, switch between players, and reset the game state.
+ * 
+ * @author Francesco Thomas, Abdul Wakil Zamani, Alex Besaw, Connor Broderick
+ */
+
 public class Game {
     private Player[] players;
     private Room[] rooms;
     private Player currentPlayer;
 
-    /**
-     * Constructor for the Game class.
-     * Initializes rooms, players, and sets up the doors according to a predefined map.
-     */
+/**
+ * Constructs a new instance of Game, initializing its configurations according to the map.
+ */
     public Game() {
-        // Initialize rooms with specific characteristics
+        // Populate rooms with specified attributes
         rooms = new Room[10];
         rooms[0] = new Room(1);
         rooms[1] = new RoomWithMachinePart(2, new Part(3));
@@ -21,7 +29,7 @@ public class Game {
         rooms[8] = new Room(9);
         rooms[9] = new Workshop(10);
 
-        // Set up doors between rooms
+        // Establish connections between rooms
         try {
             setUpDoors();
         } catch (Exception e) {
@@ -35,12 +43,12 @@ public class Game {
         currentPlayer = players[0];
     }
 
-    /**
-     * Sets up the doors between the rooms as described in the map.
-     * @throws Exception if inconsistencies found by setDoor
-     */
+/**
+ * Configures the doors between rooms according to the predefined map.
+ * @throws Exception if inconsistencies are detected during setdoor function
+ */
     private void setUpDoors() throws Exception {
-        // Door setup example based on your code snippet above
+        // Establish door connections based on the predefined map
         rooms[0].setDoor(Direction.up, rooms[3]);
         rooms[0].setDoor(Direction.left, rooms[8]);
         rooms[1].setDoor(Direction.up, rooms[4]);
@@ -66,25 +74,25 @@ public class Game {
     }
 
     /**
-     * Retrieves the current player.
-     * @return the currently active player.
+     * 'Getter' method for  currentPlayer.
+     * @return who is the current player.
      */
     public Player getCurrentPlayer() {
         return currentPlayer;
     }
 
     /**
-     * Switches the current player between the two players.
+     * Alternates between the two players.
      */
     public void switchPlayer() {
         currentPlayer = (currentPlayer == players[0]) ? players[1] : players[0];
     }
 
     /**
-     * Initiates the game by setting up the initial configuration.
+     * Initiates the game by moving players back to the start and clearing their inventory of collected items.
      */
     public void initGame() {
-        // Reset player positions to start room, clear collected items
+        // Put players back in starting room and reset their inventory
         for (Player player : players) {
             player.setCurrentRoom(rooms[0]);
             player.resetCollectedItems();
